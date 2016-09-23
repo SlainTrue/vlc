@@ -50,7 +50,7 @@ struct vlc_object_internals
     vlc_mutex_t tree_lock;
 };
 
-# define vlc_internals( obj ) (((vlc_object_internals_t*)(VLC_OBJECT(obj)))-1)
+# define vlc_internals( obj ) ((vlc_object_internals_t*)((obj) - 1))
 # define vlc_externals( priv ) ((vlc_object_t *)((priv) + 1))
 
 void DumpVariables(vlc_object_t *obj);
